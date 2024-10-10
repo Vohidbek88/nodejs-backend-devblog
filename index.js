@@ -14,7 +14,7 @@ const app = express();
 app.use(express.json({limit:'18mb'}))
 app.use(cookieParser())
 app.use(express.urlencoded({limit:'18mb',extended:true}))
-app.use(cors({ origin:'http://localhost:5173', allowedHeaders:['Content-Type','Cache-Control'],credentials:true,}))
+app.use(cors({ origin:'https://devbloguz.netlify.app', allowedHeaders:['Content-Type','Cache-Control'],credentials:true,}))
 
 app.get('/', (req, res) => {
     console.log(req);
