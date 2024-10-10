@@ -69,7 +69,7 @@ route.post('/signin', async (req, res) => {
         console.log(tokenData);
         const jwttoken = jwt.sign(tokenData, 'HY99PIB55', { expiresIn: '1d' });
         console.log(jwttoken);
-        res.cookie('token', jwttoken, { httpOnly: true,secure:process.env.NODE_ENV==='production',maxAge:'86400',expires:'1d' });
+        res.cookie('token', jwttoken, { httpOnly: true,maxAge:'86400',expires:'1d' });
         ; // Set the cookie first
         return res.status(200).json({ message: 'Login successfully!' }); // Changed status to 200
 
