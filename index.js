@@ -27,13 +27,17 @@ app.use('/image',imageRoute)
 
 
 
-mongoose.connect('mongodb://localhost:27017/mern-stack')
-    .then(() => {
-        console.log('App connected database successful!!');
-        app.listen(PORT, () => {
-            console.log(`App listening project port:${PORT}`);
-        })
-    })
-    .catch(error => {
-        console.log(error);
-    })
+const ConnetctionDb=async()=>{
+    try {
+      await  mongoose.connect('mongodb+srv://vohidabdunazarov88:WQgH3WXGSgWDOzL3@cluster0.ofu3b.mongodb.net/')
+      console.log('Database connected!!!');
+    } catch (error) {
+        console.log('Database noconnect!!!');
+    }
+}
+
+ConnetctionDb()
+
+app.listen(PORT, () => {
+    console.log(`App listening project port:${PORT}`);
+})
