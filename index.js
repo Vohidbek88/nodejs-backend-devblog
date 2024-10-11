@@ -29,7 +29,7 @@ app.use('/image',imageRoute)
 //process.env.URL_MONGO
 const ConnetctionDb=async()=>{
     try {
-      await  mongoose.connect(process.env.URL_MONGO)
+      await  mongoose.connect('mongodb+srv://vohidabdunazarov88:WQgH3WXGSgWDOzL3@cluster0.ofu3b.mongodb.net/')
       console.log('Database connected!!!');
     } catch (error) {
         console.log('Database noconnect!!!');
