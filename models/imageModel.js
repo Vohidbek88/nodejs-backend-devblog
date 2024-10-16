@@ -2,8 +2,8 @@ import mongoose, { Schema } from "mongoose";
 
 const ImageSchema = new Schema({
     image: {
-        data: Buffer,
-        contentType:String,
+        type: String,
+        required: true
     },
 })
 
