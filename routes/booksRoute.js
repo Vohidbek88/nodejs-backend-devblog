@@ -8,13 +8,13 @@ const router = express.Router();
 router.post('/', async (req, res) => {
     try {
         if (
-            !req.body.title ||
-            !req.body.author ||
-            !req.body.publishYear ||
-            !req.body.email ||
+            String(req.body.title).trim()=='' ||
+            String(req.body.author).trim()=='' ||
+            String(req.body.publishYear).trim()=='' ||
+            String(req.body.email).trim()=='' ||
             !req.body.imageObject
         ) {
-            return res.status(400).send({ message: "Send all required input !!!" })
+            return res.status(400).send({ message: "Maydonlar to'g'ri tartibda to'ldirilmadi !!!" })
         }
         const newBook = {
             title: req.body.title,
@@ -62,13 +62,13 @@ router.get('/:id', async (req, res) => {
 router.put('/:id', async (req, res) => {
     try {
         if (
-            !req.body.title ||
-            !req.body.author ||
-            !req.body.publishYear ||
-            !req.body.email ||
+           String(req.body.title).trim()=='' || 
+            String(req.body.author).trim()=='' || 
+            String(req.body.publishYear).trim()=='' || 
+            String(req.body.email).trim()=='' ||
             !req.body.imageObject
         ) {
-            return res.status(400).send({ message: "Send all required input !!!" })
+            return res.status(400).send({ message: "Maydonlar to'g'ri tartibda to'ldirilmadi !!!" })
         }
 
         const { id } = req.params;
@@ -89,7 +89,7 @@ router.put('/:id', async (req, res) => {
 router.delete('/:id', async (req, res) => {
     try {
         const { id } = req.params;
-        const result = await Book.findByIdAndDelete(id);
+        const result = await Book.findByIdAndDelete(id,{new:true});
         if (!result) {
             return res.status(404).send({ message: "Book not found" });
         }

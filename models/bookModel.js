@@ -9,10 +9,10 @@ const bookSchema = new Schema(
         ,
         author: {
             type: String,
-            required: true
+            required: true,
         },
         publishYear: {
-            type: Number,
+            type: String,
             required: true
         },
         email: {

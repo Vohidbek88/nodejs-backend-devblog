@@ -23,13 +23,15 @@ app.get('/', (req, res) => {
 
 app.use('/books',booksRoute);
 app.use('/user',usersRoute);
-app.use('/image',imageRoute)
+app.use('/image',imageRoute);
+
 
 
 //process.env.URL_MONGO
+//'mongodb://localhost:27017/mern-stack'
 const ConnetctionDb=async()=>{
     try {
-      await  mongoose.connect('mongodb://localhost:27017/mern-stack')
+      await  mongoose.connect('mongodb+srv://vohidabdunazarov88:WQgH3WXGSgWDOzL3@cluster0.ofu3b.mongodb.net/')
       console.log('Database connected!!!');
     } catch (error) {
         console.log('Database noconnect!!!');
